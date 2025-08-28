@@ -1,0 +1,140 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Justin Bieber Fan Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-ornaments" aria-hidden="true">
+    <span class="note">♪</span><span class="note">♩</span><span class="note">♫</span>
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  </div>
+
+  <header class="hero">
+    <h1>Justin Bieber Fan Page</h1>
+    <p class="tagline">pop hooks, stadium moments, and an era-by-era glow-up ✨</p>
+  </header>
+
+  <main class="container">
+    <!-- About -->
+    <section class="card">
+      <h2>Who’s this page for?</h2>
+      <p>
+        Beliebers old and new who want a quick tour through the eras — from
+        YouTube kid with a flip haircut to arena-filling performer and serial collab king.
+      </p>
+      <ul class="pill-list">
+        <li>Hometown: Stratford, Ontario</li>
+        <li>Breakout: “One Time” (2009)</li>
+        <li>Signature era switch: <em>Purpose</em> (2015)</li>
+        <li>Big collabs: “Despacito (Remix)”, “STAY”, “I’m the One”</li>
+      </ul>
+    </section>
+
+    <!-- Fun facts + Spinning wheel -->
+    <section class="card">
+      <h2>Fun Facts & Little Flexes</h2>
+
+      <ul id="fact-list" class="fun-facts">
+        <li>Started by posting covers on YouTube — discovered by Scooter Braun.</li>
+        <li>First artist to land every track from a single album on the Hot 100 the week <em>Purpose</em> dropped.</li>
+        <li>Launched clothing brand Drew House.</li>
+        <li>Known for big-canvas staging: pyro, lasers, and full dance crews.</li>
+        <li>Genre-fluid collabs across pop, EDM, hip-hop, and Latin.</li>
+      </ul>
+
+      <!-- NEW: spinning wheel -->
+      <div class="wheel-wrap" aria-live="polite">
+        <div class="pointer" aria-hidden="true"></div>
+        <div id="wheel" class="wheel" role="img" aria-label="Spin for a random fun fact"></div>
+        <button id="spin" class="btn spin-btn" aria-label="Spin the wheel">SPIN</button>
+      </div>
+
+      <p id="rolled" class="rolled" aria-live="polite"></p>
+    </section>
+
+    <!-- Era bites -->
+    <section class="card">
+      <h2>Era Bites</h2>
+      <div class="eras">
+        <article>
+          <h3>My World → Believe</h3>
+          <p>Teen-pop rocket fuel. Hooks for days, worldwide tours, and the Belieber fandom truly forming.</p>
+        </article>
+        <article>
+          <h3>Purpose</h3>
+          <p>EDM-pop precision with introspective lyrics — the pivot that matured the sound and leveled up the show.</p>
+        </article>
+        <article>
+          <h3>Justice & beyond</h3>
+          <p>Polished pop/R&amp;B blends, high-profile collabs, and a focus on performance craft and creative direction.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="card">
+      <h2>Photo Gallery</h2>
+      <p class="gallery-note">Tap/click to view larger — all images load lazily for speed.</p>
+
+      <div class="grid" id="gallery">
+        <figure>
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Justin_Bieber_2011.jpg" alt="Justin Bieber performing in 2011, close-up with headset mic" />
+          <figcaption>2011 performance • Credit: Adam Sundana (Wikimedia)</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Justin_Bieber_NRJ_Music_Awards_2012.jpg" alt="Justin Bieber smiling at the NRJ Music Awards 2012" />
+          <figcaption>NRJ Music Awards 2012 • Credit: Georges Biard</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/0/01/Believe_Tour_13%2C_2012.jpg" alt="Believe Tour performance, white outfit and gold gloves" />
+          <figcaption>Believe Tour • Credit: Joe Bielawa</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Justin_Bieber_half_topless_in_Zurich_Hallenstadion.JPG" alt="Justin Bieber on stage in Zurich, 2013" />
+          <figcaption>Zurich, 2013 • Credit: Pascal Parvex</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Justin_Bieber_at_the_BRIT_Awards_2016.jpg" alt="Justin Bieber performing at the BRIT Awards with pyrotechnics" />
+          <figcaption>BRIT Awards 2016 • Credit: David Jones</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Justin_Bieber_%2825830598702%29.jpg" alt="Arena-wide shot of a Justin Bieber concert in Oakland, 2016" />
+          <figcaption>Oakland, 2016 • Credit: Travis Wise</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/8/85/Justin_Bieber_20161111_009-2.jpg" alt="Justin Bieber performing in 2016 with dancers in white" />
+          <figcaption>Kraków, 2016 • Credit: Jakub Janecki</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Justin_Bieber_%286781799863%29.jpg" alt="Justin Bieber walking a red carpet with photographers" />
+          <figcaption>Red carpet, 2012 • Credit: Thomas Bonte</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Justin_Bieber_%286781813609%29.jpg" alt="Overhead view of Justin Bieber on a red carpet, 2012" />
+          <figcaption>Red carpet (wide), 2012 • Credit: Thomas Bonte</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Playful callout -->
+    <section class="card">
+      <h2>Mini Fan Challenges</h2>
+      <ol class="challenges">
+        <li>Create a 3-song era-hop: one from early days, one from <em>Purpose</em>, one feature you love.</li>
+        <li>Pick a concert photo above and write a one-liner you’d shout on a tour poster.</li>
+        <li>Spin the wheel and share your fave fact — convert a friend 😉</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made by fans, for fans. Be kind, credit artists & photographers.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
