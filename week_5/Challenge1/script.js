@@ -15,7 +15,6 @@ const temp_images = {
     "Cold": "images/cold.jpg"  // Celsius < 5
 };
 
-
 // DO NOT CHANGE THE FUNCTION SIGNATURE
 function check_weather() {
 
@@ -25,7 +24,7 @@ function check_weather() {
     // Task 1
     // Key in your own OpenWeatherMap.org API key (DO NOT SHARE IT WITH OTHERS)
     //============================================================================
-    const weather_api_key = 'be1164a25e1dbdddb3ec966caa0eb89c';
+    const weather_api_key = WEATHER_API;
 
 
     //============================================================================
