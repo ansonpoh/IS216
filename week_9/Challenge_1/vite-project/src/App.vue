@@ -1,5 +1,6 @@
 <script>
-
+import axios from "axios";
+const key="be1164a25e1dbdddb3ec966caa0eb89c";
 
 export default {
   name: 'App',
@@ -20,7 +21,10 @@ export default {
             'Taekwondo Black Belt',
             'Loves cats',
             'Her favorite ramen flavor is Spicy Chicken.'
-          ]
+          ],
+          city: "Seoul",
+          temp: undefined,
+          tempError: false,
         },
         { 
           id: 2, 
@@ -34,7 +38,10 @@ export default {
             'Choreography for most of HUNTRIX songs',
             'Mira can play drums',
             'Her favorite ramen flavor is roast beef.'
-          ]
+          ],
+          city: "Los Angeles",
+          temp: undefined,
+          tempError: false,
 
         },
         { 
@@ -49,8 +56,10 @@ export default {
             'She can play the bass',
             "Wrote most of HUNTRIX songs' rap parts",
             'Her favorite ramen flavor is pork with soy sauce.'
-          ]
-
+          ],
+          city: "Moscow",
+          temp: undefined,
+          tempError: false,
         }
       ],
       query: "",
@@ -76,6 +85,24 @@ export default {
       } else {
         this.selectedMember = member;
       }
+    },
+
+    async fetchWeather(member) {
+      const url = `http://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(member.city)}&units=metric&appid=${key}`;
+      
+      try {
+        const data = await axios.get(url);
+        member.temp = Math.round(data.data.main.temp);
+        member.tempError = false;
+      } catch (err) {
+        console.error("Weather fetch failed for", member.city, err?.message || err);
+        member.temp = undefined;
+        member.tempError = true;
+      }
+    },
+
+    async fetchAllWeather() {
+      await Promise.all(this.members.map(m => this.fetchWeather(m)));
     }
   },
 
@@ -83,6 +110,10 @@ export default {
     query() {
       this.selectedMember = null;
     }
+  },
+
+  mounted() {
+    this.fetchAllWeather();
   }
 };
 </script>
@@ -110,6 +141,13 @@ export default {
         </button>
         <br/>
         <img :src="m.img" :alt="m.name" width="100"/>
+
+        <p class="city-temp">
+          <strong>{{ m.city }}</strong>
+          <span v-if="m.tempError"> - N/A</span>
+          <span v-else-if="m.temp === undefined"> - Loading...</span>
+          <span v-else> :: {{ m.temp }}</span>
+        </p>
       </li>
     </ol>
 
@@ -135,5 +173,11 @@ export default {
 .active {
   background-color: purple;
   color: white;
+}
+
+.city-temp {
+  margin: 0.25rem 0 1rem;
+  font-size: 0.9rem;
+  color: #666;
 }
 </style>
