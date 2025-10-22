@@ -40,12 +40,15 @@ export default {
   // END OF DO NOT MODIFY
   
   // ADD YOUR CODE HERE
+  computed: {
+    categories() {
+      return Object.keys(this.is_curriculum);
+    },
 
-
-
-
-
-
+    courses() {
+      return this.is_curriculum[this.selected_cat];
+    }
+  }
 
   // END OF ADDING YOUR CODE HERE
 }
@@ -54,10 +57,17 @@ export default {
 <template>
   <h3 class="mb-4">BSC (IS) Curriculum</h3>
   <!-- ADD YOUR CODE HERE -->
+  <select v-model="selected_cat">
+    <option v-for="cat in categories">
+      {{ cat }}
+    </option>
+  </select>
 
-
-
-
+  <ul>
+    <li v-for="course in courses">
+      {{ course }}
+    </li>
+  </ul>
 
 
 

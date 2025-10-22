@@ -16,8 +16,8 @@ export default {
   <p>
     I am a
     <!-- ADD YOUR CODE HERE -->
-
-
+    <span id="dragon" v-if="showSolution">Dragon</span>
+    <button v-else @click="showSolution = true">?</button>
 
 
 

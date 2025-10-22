@@ -20,11 +20,33 @@ export default {
       selected_measurement: 'Length',
       unit1: 'Inch',
       unit2: 'centimetre',
-      val1: 1
+      val1: 1,
     };
   },
   // ADD YOUR CODE HERE
+  computed: {
+    getMeasurements() {
+      return Object.keys(this.measurements);
+    },
 
+    getUnits() {
+      let conversions =  Object.keys(this.measurements[this.selected_measurement]);
+      let types = new Set();
+      for(let c of conversions) {
+        let split = c.split("2");
+        types.add(split[0]);
+        types.add(split[1]);
+      }
+      return types;
+    },
+
+    val2() {
+      let conversion = this.unit1 + "2" + this.unit2;
+      let conversionVal = this.measurements[this.selected_measurement][conversion];
+      return this.val1 * conversionVal;
+    }
+
+  }
 
 
 
@@ -38,7 +60,28 @@ export default {
 <template>
   <h4>Convert from One Measurement to Another</h4>
   <!-- ADD YOUR CODE HERE -->
+  <br/>
+  <select v-model="selected_measurement">
+    <option v-for="measurement in getMeasurements">
+      {{ measurement }}
+    </option>
+  </select>
 
+  <br/>
+  <input type="number" v-model="val1"/>
+  <select v-model="unit1">
+    <option v-for="unit in getUnits">
+      {{ unit }}
+    </option>
+  </select>
+
+  <input type="number" disabled v-model="val2"/>
+
+  <select v-model="unit2">
+    <option v-for="unit in getUnits">
+      {{ unit }}
+    </option>
+  </select>
 
 
 

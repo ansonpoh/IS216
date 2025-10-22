@@ -12,8 +12,7 @@ export default {
 
 <template>
   <!-- MODIFY YOUR CODE HERE -->
-
-  <textarea rows="5">What if I told you Vue can do that</textarea>
+  <textarea rows="5" v-model="text" :class="{warn: text.length >= 40}" :maxlength="limit">What if I told you Vue can do that</textarea>
   
   <!-- END OF MODIFYING YOUR CODE HERE -->
 

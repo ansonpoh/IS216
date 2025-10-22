@@ -13,7 +13,15 @@ export default {
     };
   },
   // ADD YOUR CODE HERE
+  computed: {
+    currencies() {
+      return Object.keys(this.exchange_rates);
+    },
 
+    exchange() {
+      return this.sing_dollar * this.exchange_rates[this.selected_currency];
+    }
+  }
 
 
 
@@ -30,12 +38,15 @@ export default {
   <!-- ADD OR MODIFY YOUR CODE HERE -->
 
   <div class="p-2">
-    Singapore Dollar: <input type="number" min="0">
+    Singapore Dollar: <input type="number" min="0" v-model="sing_dollar">
   </div>
   <div class="p-2">
-    <select>
-      <option></option>
+    <select v-model="selected_currency">
+      <option v-for="currency in currencies">
+        {{ currency }}
+      </option>
     </select>
+    {{ exchange }}
   </div>
 
   <!-- END OF ADDING OR MODIFYING YOUR CODE HERE -->
