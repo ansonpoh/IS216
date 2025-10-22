@@ -7,7 +7,11 @@ export default {
     };
   },
   // ADD YOUR CODE HERE
-
+  computed: {
+    words() {
+      return this.sentence.trim().split(" ");
+    }
+  }
 
 
 
@@ -20,9 +24,14 @@ export default {
 
 <template>
   <!-- ADD YOUR CODE HERE -->
+  <label>Sentence</label>
+  <input type="text" v-model="sentence"/>
 
-
-
+  <br/>
+  <span v-for="word,index in words ">
+    <span :style="{color: colors[index % colors.length], textDecoration: (index % 2 == 1) ? 'underline' : 'none'}">{{ word }}</span>
+    &nbsp;
+  </span>
 
 
 
